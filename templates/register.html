@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    /* Define styles for the registration form container */
+    .register-container {
+      /* Set a width of 50%, center the container horizontally and add some padding */
+      width: 50%;
+      margin: 0 auto;
+      padding: 20px;
+      /* Set a background color and border radius */
+      background-color: #f2f2f2;
+      border-radius: 10px;
+      /* Center the text in the container */
+      text-align: center;
+    }
+
+    /* Style the header of the form */
+    .register-container h2 {
+      /* Increase the font size, add some margin to the bottom */
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    /* Style the labels for the form inputs */
+    .register-container label {
+      /* Display the labels as block elements */
+      display: block;
+      /* Set the font size, add a bit of margin to the bottom */
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      /* Align the text to the left */
+      text-align: left;
+    }
+
+    /* Style the form inputs */
+    .register-container input[type="text"],
+    .register-container input[type="email"],
+    .register-container input[type="password"],
+    .register-container select {
+      /* Stretch the input fields to fill the container, add some padding, margin and border radius */
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      /* Remove the default border and set the font size */
+      border: none;
+      font-size: 1.2rem;
+    }
+
+    /* Style the submit button */
+    .register-container input[type="submit"] {
+      /* Set the background color, font size, border radius, padding, and remove the border */
+      background-color: #4CAF50;
+      color: white;
+      font-size: 1.5rem;
+      border-radius: 5px;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Style the submit button on hover */
+    .register-container input[type="submit"]:hover {
+      /* Change the background color on hover */
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>Register Here</h2>
+    <form action="{{ url_for('register') }}" method="POST">
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br>
+
+      <label for="plan">Select Plan:</label>
+      <select id="plan" name="plan">
+        <option value="basic">Basic - $5/month</option>
+        <option value="premium">Premium - $10/month</option>
+        <option value="ultra">Ultra - $15/month</option>
+      </select><br><br>
+
+      <label for="cardName">Cardholder Name:</label>
+      <input type="text" id="cardName" name="cardName" required>
+
+      <label for="cardNumber">Card Number:</label>
+      <input type="text" id="cardNumber" name="cardNumber" required>
+
+      <label for="expiryDate">Expiry Date (MM/YY):</label>
+      <input type="text" id="expiryDate" name="expiryDate" required>
+
+      <label for="cvc">CVC:</label>
+      <input type="text" id="cvc" name="cvc" required>
+
+      <input type="submit" value="Register">
+    </form>
+  </div>
+</body>
+</html>

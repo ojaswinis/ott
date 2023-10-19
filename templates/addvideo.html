@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h1>Welcome to the Video Dashboard</h1>
+
+    <!-- Add video form -->
+    <h2>Add Video</h2>
+    <form action="{{ url_for('addvideos') }}" method="POST">
+
+      <label>Link:</label>
+      <input type="text" name="link" required>
+      <br>
+      <label>Title:</label>
+      <input type="text" name="title" required>
+      <br>
+      <input type="submit" value="Add Video">
+    </form>
+
+  </body>
+</html>

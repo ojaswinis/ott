@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Streaming Service</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        /* Video Item Styles */
+        .video-item {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 315px;
+        }
+        
+        h2 {
+            text-align: center;
+            margin: 10px 0;
+            color: #333;
+        }
+    </style>
+    <link rel="stylesheet" href="../static/styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>My Streaming Service</h1>
+        <nav>
+            <ul>
+              <li><a href="#section1">Movies</a></li>
+              <li><a href="#section2">TV Shows</a></li>
+              <li><a href="#section3">Originals</a></li>
+            </ul>
+         </nav>
+         <form method="POST" action="{{url_for('search')}}">
+            <input type="text" name="query">
+    <button type="submit">Search</button>
+  </form>
+        {% for video in videos %}
+        <div class="video-item">
+            <iframe width="560" height="315" src="{{video.link}}" title="{{video.title}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h2>{{video.title}}</h2>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
